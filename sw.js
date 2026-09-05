@@ -2,11 +2,11 @@
    - Shell (html/css/js/manifest): se guarda en instalación y se sirve desde caché, actualizando en segundo plano.
    - Datos e imágenes (data/): caché primero; si no está, red y se guarda.
    - Google Fonts: caché primero (respuestas opacas están bien). */
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL = `cartela-shell-${VERSION}`;
 const RUNTIME = 'cartela-runtime';
 const FONTS = 'cartela-fonts';
-const SHELL_FILES = ['./', 'index.html', 'app.css?v=3', 'app.js?v=3', 'manifest.webmanifest', 'icons/icon-180.png', 'icons/icon-512.png'];
+const SHELL_FILES = ['./', 'index.html', 'app.css?v=4', 'app.js?v=4', 'manifest.webmanifest', 'icons/icon-180.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(SHELL).then(c => c.addAll(SHELL_FILES)).then(() => self.skipWaiting()));

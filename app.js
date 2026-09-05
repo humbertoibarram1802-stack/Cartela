@@ -25,6 +25,9 @@ const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
 // "012" → "Sala 012"; "10–14" → "Salas 10–14"; "Tribuna del David" → tal cual
 const salaLabel = s => { s = String(s ?? ''); if (!/^\d/.test(s)) return s; return (/[–-]/.test(s) ? 'Salas ' : 'Sala ') + s; };
 const nowrap = t => `<span class="nowrap">${esc(t)}</span>`;
+// "Sevilla, 1599 – Madrid, 1660"; años aproximados como "c. 1488"
+const fechaVida = d => d ? [d.lugar, d.anio != null ? (d.anio_aprox ? 'c. ' + d.anio : String(d.anio)) : null].filter(Boolean).join(', ') : '';
+const vida = a => a ? `${esc(fechaVida(a.nacimiento))}${a.muerte ? ' – ' + esc(fechaVida(a.muerte)) : ''}` : '';
 const ICON = {
   back:   '<svg class="ic" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>',
   chev:   '<svg class="ic chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>',
@@ -227,7 +230,7 @@ function vObra(m, data, o) {
       ${o.historia ? `<h4>Historia</h4>${parrafos(o.historia)}` : ''}
       ${o.fun_fact ? `<div class="fun"><h4>Fun fact</h4>${parrafos(o.fun_fact)}</div>` : ''}
       ${!o.que_ves && !o.historia && o.texto_oficial ? `<h4>Sobre la obra</h4>${parrafos(o.texto_oficial)}` : ''}
-      ${a ? `<a class="artist-card" href="#/m/${m.id}/artista/${encodeURIComponent(a.id)}"><div class="av">${esc(a.nombre[0])}</div><div class="txt"><b>${esc(a.nombre)}</b><span>${esc([a.nacimiento?.lugar, a.nacimiento?.anio].filter(Boolean).join(', '))}${a.muerte ? ' – ' + esc([a.muerte.lugar, a.muerte.anio].filter(Boolean).join(', ')) : ''}</span></div>${ICON.chev}</a>` : ''}
+      ${a ? `<a class="artist-card" href="#/m/${m.id}/artista/${encodeURIComponent(a.id)}"><div class="av">${esc(a.nombre[0])}</div><div class="txt"><b>${esc(a.nombre)}</b><span>${vida(a)}</span></div>${ICON.chev}</a>` : ''}
       ${o.fuentes?.length ? `<div class="sources">Fuentes: ${[...new Map(o.fuentes.map(f => [f.startsWith('http') ? f.replace(/^https?:\/\//, '').split('/')[0] : f, f])).entries()].map(([h, f]) => f.startsWith('http') ? `<a href="${esc(f)}" target="_blank" rel="noopener">${esc(h)}</a>` : esc(f)).join(' · ')}</div>` : ''}
     </div>
   </article>`;
@@ -236,7 +239,7 @@ function vObra(m, data, o) {
 function vArtista(m, data, a, backHash, backLabel) {
   setSkin(m.skin, m.theme);
   const obras = data.obras.filter(o => o.autor_id === a.id).sort((x, y) => String(x.fecha_orden ?? x.fecha ?? '').localeCompare(String(y.fecha_orden ?? y.fecha ?? ''), 'es', { numeric: true }));
-  const dates = `${esc([a.nacimiento?.lugar, a.nacimiento?.anio].filter(Boolean).join(', '))}${a.muerte ? ' – ' + esc([a.muerte.lugar, a.muerte.anio].filter(Boolean).join(', ')) : ''}`;
+  const dates = vida(a);
   return `<section class="screen">
     ${head(m, backHash, backLabel, '', `<div class="eyebrow" style="color:var(--head-ink2);margin-top:10px">Artista</div><h1 class="display" style="font-style:normal">${esc(a.nombre)}</h1>${a.nombre_completo && a.nombre_completo !== a.nombre ? `<div class="dates" style="margin-top:6px">${esc(a.nombre_completo)}</div>` : ''}<div class="dates">${dates}</div>`)}
     <div class="body">
