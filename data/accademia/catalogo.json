@@ -1,0 +1,51 @@
+{
+ "museo": {
+  "id": "accademia",
+  "nombre": "Galleria dell’Accademia",
+  "ciudad": "Florencia",
+  "web": "https://www.galleriaaccademiafirenze.it"
+ },
+ "obras": [
+  {
+   "id": "david",
+   "titulo": "David",
+   "titulo_original": null,
+   "autor": "Miguel Ángel",
+   "autor_id": "miguelangel",
+   "fecha": "1501–1504",
+   "fecha_orden": "1501",
+   "tecnica": "Mármol",
+   "dimensiones": "5.17 m con la base",
+   "sala": "Tribuna del David",
+   "num_catalogo": null,
+   "tipo": "escultura",
+   "imagen": "img/david.jpg",
+   "imperdible": true,
+   "nivel": "completa",
+   "fuente_principal": "Galleria dell’Accademia",
+   "que_ves": "David, el pastor bíblico, un instante antes de enfrentarse a Goliat: la honda al hombro, la piedra en la mano derecha, la mirada fija. Miguel Ángel lo esculpió entre los 26 y los 29 años.",
+   "historia": "Se encargó para un contrafuerte de la catedral de Florencia, pero en enero de 1504 una comisión de artistas (entre ellos Leonardo y Botticelli) decidió colocarlo a la entrada del Palazzo Vecchio, como emblema de la libertad florentina. En 1873 se trasladó aquí para protegerlo de la intemperie; en la plaza hay una copia desde 1910.",
+   "fun_fact": "El bloque de mármol llevaba décadas abandonado: desde 1464 dos escultores, Agostino di Duccio y Antonio Rossellino, lo habían empezado y dejado antes de que Miguel Ángel lo tomara en 1501.",
+   "fuentes": [
+    "https://www.galleriaaccademiafirenze.it/en/artworks/david-michelangelo/"
+   ]
+  }
+ ],
+ "artistas": [
+  {
+   "id": "miguelangel",
+   "nombre": "Miguel Ángel",
+   "nombre_completo": "Miguel Ángel Buonarroti",
+   "nacimiento": {
+    "lugar": "Caprese",
+    "anio": 1475
+   },
+   "muerte": {
+    "lugar": "Roma",
+    "anio": 1564
+   },
+   "bio": null,
+   "obras_clave_otros": []
+  }
+ ]
+}

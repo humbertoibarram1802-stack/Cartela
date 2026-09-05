@@ -1,0 +1,49 @@
+{
+ "obras": [
+  {
+   "id": "P001174",
+   "titulo": "Las meninas",
+   "titulo_original": null,
+   "autor": "Diego Velázquez",
+   "autor_id": "diego-rodriguez-de-silva-y-velazquez",
+   "fecha": "1656",
+   "fecha_orden": "1656",
+   "tecnica": "Óleo sobre lienzo",
+   "dimensiones": "320.3 × 279.1 cm",
+   "sala": "012",
+   "num_catalogo": "P001174",
+   "tipo": "pintura",
+   "imagen": "img/P001174.jpg",
+   "imperdible": true,
+   "nivel": "completa",
+   "fuente_principal": "Museo del Prado",
+   "que_ves": "La infanta Margarita, de unos cinco años, rodeada de sus damas de compañía (las “meninas”), dos enanos y un perro, en el Cuarto del Príncipe del Alcázar de Madrid, la estancia que Velázquez usaba como taller. El pintor se retrata a sí mismo, trabajando, a la izquierda. En el espejo del fondo se reflejan los reyes, Felipe IV y Mariana de Austria.",
+   "historia": "Durante siglos no se llamó así: el inventario de 1666 la describía como el retrato de la emperatriz (la propia Margarita, casada con el emperador) con sus damas y una enana, y en el siglo XVIII se la conocía como “La familia”. El nombre “Las meninas” aparece en el catálogo del Prado de 1843.",
+   "fun_fact": "Según la tradición, la cruz roja en el pecho de Velázquez se pintó después: el rey lo nombró caballero de la Orden de Santiago en 1659, tres años después de terminar el cuadro.",
+   "fuentes": [
+    "https://www.museodelprado.es/coleccion/obra-de-arte/las-meninas/9fdc7800-9ade-48b0-ab8b-edee94ea877f"
+   ]
+  }
+ ],
+ "artistas": [
+  {
+   "id": "diego-rodriguez-de-silva-y-velazquez",
+   "nombre": "Diego Velázquez",
+   "nombre_completo": "Diego Rodríguez de Silva y Velázquez",
+   "nacimiento": {
+    "lugar": "Sevilla",
+    "anio": 1599
+   },
+   "muerte": {
+    "lugar": "Madrid",
+    "anio": 1660
+   },
+   "bio": "Pintor del rey Felipe IV desde 1623 (pintor de cámara desde 1628), pasó casi toda su vida adulta en la corte de Madrid. Viajó dos veces a Italia (1629–1631 y 1649–1651) y ahí afinó una pincelada suelta que, vista de cerca, parece inacabada y, de lejos, respira. Es el gran retratista del Barroco español.",
+   "obras_clave_otros": [
+    "Retrato de Inocencio X (Galleria Doria Pamphilj, Roma)",
+    "La Venus del espejo (National Gallery, Londres)",
+    "Juan de Pareja (The Met, Nueva York)"
+   ]
+  }
+ ]
+}

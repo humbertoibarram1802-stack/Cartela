@@ -1,0 +1,51 @@
+{
+ "museo": {
+  "id": "uffizi",
+  "nombre": "Galleria degli Uffizi",
+  "ciudad": "Florencia",
+  "web": "https://www.uffizi.it"
+ },
+ "obras": [
+  {
+   "id": "venus",
+   "titulo": "El nacimiento de Venus",
+   "titulo_original": "La nascita di Venere",
+   "autor": "Sandro Botticelli",
+   "autor_id": "botticelli",
+   "fecha": "c. 1485",
+   "fecha_orden": "1485",
+   "tecnica": "Temple sobre lienzo",
+   "dimensiones": "172.5 × 278.5 cm",
+   "sala": "A9. Filippo Lippi",
+   "num_catalogo": "Inv. 1890 n. 878",
+   "tipo": "pintura",
+   "imagen": "img/venus.jpg",
+   "imperdible": true,
+   "nivel": "completa",
+   "fuente_principal": "Galleria degli Uffizi",
+   "que_ves": "Venus llega a la orilla de pie sobre una concha, empujada por el soplo de Céfiro, el viento del oeste, que vuela abrazado a una figura femenina, quizá la ninfa Aura. A la derecha, una figura identificada como una de las Gracias o como la Hora de la primavera le tiende un manto de flores.",
+   "historia": "Se pintó probablemente para la familia Médici, en pleno Renacimiento florentino. Es un gran desnudo mitológico, la diosa del amor de la tradición clásica, algo casi inédito en la pintura de su época.",
+   "fun_fact": "Está pintada sobre lienzo, y no sobre tabla como casi todos los grandes cuadros florentinos del siglo XV. La tela se reservaba sobre todo para decorar villas de campo.",
+   "fuentes": [
+    "https://www.uffizi.it/opere/nascita-di-venere"
+   ]
+  }
+ ],
+ "artistas": [
+  {
+   "id": "botticelli",
+   "nombre": "Sandro Botticelli",
+   "nombre_completo": "Alessandro di Mariano di Vanni Filipepi, llamado Sandro Botticelli",
+   "nacimiento": {
+    "lugar": "Florencia",
+    "anio": 1445
+   },
+   "muerte": {
+    "lugar": "Florencia",
+    "anio": 1510
+   },
+   "bio": null,
+   "obras_clave_otros": []
+  }
+ ]
+}

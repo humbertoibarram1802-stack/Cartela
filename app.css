@@ -1,0 +1,192 @@
+/* Cartela · hoja de estilos
+   Una interfaz, cuatro pieles. La piel se aplica con data-skin en <html>. */
+
+:root{
+  --ui:"Instrument Sans",system-ui,-apple-system,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --fs:15px;            /* texto de lectura, decisión: 15 px */
+  --radius:14px;
+
+  /* piel neutra (inicio) */
+  --bg:#151414; --surface:#1F1D1D; --ink:#F1EDE4; --ink2:#B8B2A6; --ink3:#8A847A; --line:#2E2B2B;
+  --accent:#F1EDE4; --accent-ink:#151414; --head-bg:#151414; --head-ink:#F1EDE4; --head-ink2:#9A948A;
+  --display:var(--serif); --display-style:normal; --display-weight:400; --display-tt:none; --display-ls:0; --display-stretch:100%;
+  --author-font:var(--ui); --author-style:normal;
+  --fun-bg:#2A2727; --fun-ink:#F1EDE4; --fun-label:#B8B2A6;
+  --level-bg:#2E2B2B; --level-ink:#B8B2A6;
+  --card-radius:14px;
+}
+html[data-skin="prado"]{
+  --bg:#F3EBDD; --surface:#FFFDF8; --ink:#241A18; --ink2:#6B5A55; --ink3:#9A8A83; --line:#E1D3B8;
+  --accent:#7A1F2B; --accent-ink:#F3EBDD; --head-bg:#7A1F2B; --head-ink:#F3EBDD; --head-ink2:#E9D9B9; --hero-bg:#5E1621;
+  --display:"Cormorant Garamond",Georgia,serif; --display-style:italic; --display-weight:500;
+  --author-font:var(--ui);
+  --fun-bg:#7A1F2B; --fun-ink:#F3EBDD; --fun-label:#E3C88A;
+  --level-bg:#EBDDC0; --level-ink:#6B4E1E;
+}
+html[data-skin="reinasofia"]{
+  --bg:#F7F7F5; --surface:#FFFFFF; --ink:#121212; --ink2:#55554F; --ink3:#8E8E8A; --line:#DADAD6;
+  --accent:#C41F1F; --accent-ink:#FFFFFF; --head-bg:#F7F7F5; --head-ink:#121212; --head-ink2:#55554F; --hero-bg:#E9E9E6;
+  --display:"Archivo",system-ui,sans-serif; --display-weight:800; --display-tt:uppercase; --display-ls:-.03em; --display-stretch:78%;
+  --author-font:var(--ui);
+  --fun-bg:#121212; --fun-ink:#F7F7F5; --fun-label:#F7F7F5;
+  --level-bg:#121212; --level-ink:#F7F7F5;
+  --radius:0; --card-radius:0;
+}
+html[data-skin="uffizi"]{
+  --bg:#F5EEE1; --surface:#FFFFFF; --ink:#2B2622; --ink2:#6F655C; --ink3:#9C8F83; --line:#E6D9BF;
+  --accent:#A64A27; --accent-ink:#FFFFFF; --head-bg:#6E7B86; --head-ink:#FFFFFF; --head-ink2:#DCE3E8; --hero-bg:#6E7B86;
+  --display:"Cinzel",Georgia,serif; --display-weight:600; --display-ls:.03em;
+  --author-font:"Cormorant Garamond",Georgia,serif; --author-style:italic;
+  --fun-bg:#FFFFFF; --fun-ink:#2B2622; --fun-label:#5D6A75;
+  --level-bg:#E3C88A; --level-ink:#5B4519;
+}
+html[data-skin="accademia"]{
+  --bg:#EFEEEA; --surface:#F7F6F3; --ink:#2B2D31; --ink2:#5F6369; --ink3:#8C8F94; --line:#D9D8D3;
+  --accent:#4A5D73; --accent-ink:#FFFFFF; --head-bg:#E3E2DD; --head-ink:#2B2D31; --head-ink2:#5F6369; --hero-bg:#E3E2DD;
+  --display:"Bodoni Moda",Georgia,serif; --display-weight:400; --display-ls:.01em;
+  --author-font:"Bodoni Moda",Georgia,serif; --author-style:italic;
+  --fun-bg:#2B2D31; --fun-ink:#ECEBE7; --fun-label:#B7C4D4;
+  --level-bg:#DCDDD8; --level-ink:#3E4046;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:var(--fs);line-height:1.55;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overscroll-behavior-y:none}
+#app{min-height:100%;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg.ic{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink3)}
+.display{font-family:var(--display);font-style:var(--display-style);font-weight:var(--display-weight);text-transform:var(--display-tt);letter-spacing:var(--display-ls);font-stretch:var(--display-stretch);line-height:1.05}
+.tap{min-height:44px;display:flex;align-items:center}
+.screen{animation:fade .18s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}}
+
+/* ---- barra superior ---- */
+.head{background:var(--head-bg);color:var(--head-ink);padding:calc(var(--safe-top) + 6px) 20px 20px}
+.head .top{display:flex;align-items:center;justify-content:space-between;min-height:44px;gap:12px}
+.head .back{display:inline-flex;align-items:center;gap:4px;font-size:15px;min-height:44px;margin-left:-6px;padding-right:8px;color:inherit;max-width:70%}
+.head .back span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.head h1{font-size:clamp(26px,9vw,38px);margin-top:8px}
+html[data-skin="uffizi"] .head h1{font-size:clamp(22px,7.5vw,30px);line-height:1.1}
+.head .meta{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:var(--head-ink2)}
+.head .meta .dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.head .dates{margin-top:10px;font-size:14px;color:var(--head-ink2);font-variant-numeric:tabular-nums}
+
+/* ---- inicio ---- */
+.home{flex:1;display:flex;flex-direction:column;background:#151414;color:#F1EDE4}
+.home .brand{padding:calc(var(--safe-top) + 26px) 22px 18px}
+.home .brand .eyebrow{color:#9A948A}
+.home .brand h1{font-family:var(--serif);font-size:44px;font-weight:400;line-height:1;margin-top:8px}
+.home .brand p{margin-top:8px;color:#B8B2A6;font-size:14px;max-width:34ch}
+.tiles{display:flex;flex-direction:column;gap:10px;padding:0 14px calc(var(--safe-bottom) + 14px);flex:1}
+.tile{flex:1;min-height:112px;border-radius:22px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;text-align:left;width:100%}
+.tile .city{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;opacity:.8}
+.tile .name{line-height:1;margin-top:6px;padding-right:64px}
+@media (max-height:700px){.tile .name{font-size:26px!important}.home .brand{padding-top:calc(var(--safe-top) + 14px)}}
+.tile .state{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;opacity:.92}
+.tile .state .dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.tile-prado{background:#7A1F2B;color:#F3EBDD}
+.tile-prado .name{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;font-weight:500}
+.tile-prado::after{content:"";position:absolute;right:20px;top:22px;width:56px;height:1px;background:#C8A15A}
+.tile-reinasofia{background:#F7F7F5;color:#121212;border-radius:0}
+.tile-reinasofia .name{font-family:"Archivo",system-ui,sans-serif;font-stretch:80%;font-weight:800;font-size:30px;letter-spacing:-.02em;text-transform:uppercase}
+.tile-reinasofia::after{content:"";position:absolute;right:22px;top:22px;width:14px;height:14px;background:#D62828}
+.tile-uffizi{background:#F5EEE1;color:#2B2622}
+.tile-uffizi .name{font-family:"Cinzel",Georgia,serif;font-size:23px;font-weight:600;letter-spacing:.04em}
+.tile-uffizi::after{content:"";position:absolute;right:20px;top:18px;width:40px;height:22px;border:1.5px solid #B8552F;border-bottom:0;border-radius:20px 20px 0 0}
+.tile-accademia{background:linear-gradient(160deg,#F2F1ED 0%,#E6E5E0 55%,#EDECE8 100%);color:#2B2D31}
+.tile-accademia .name{font-family:"Bodoni Moda",Georgia,serif;font-size:32px;font-weight:400;font-style:italic}
+.tile-accademia::after{content:"";position:absolute;right:-10px;top:10px;width:120px;height:1px;background:#8C8F94;transform:rotate(-28deg);opacity:.5}
+
+/* ---- pantalla de museo ---- */
+.search{margin:16px 20px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);min-height:48px;display:flex;align-items:center;gap:10px;padding:0 14px;color:var(--ink2)}
+.search input{flex:1;border:0;background:none;font:inherit;color:var(--ink);min-height:46px;outline:none}
+.search input::placeholder{color:var(--ink2)}
+.section-title{font-family:var(--display);font-style:var(--display-style);font-weight:var(--display-weight);text-transform:var(--display-tt);letter-spacing:var(--display-ls);font-stretch:var(--display-stretch);font-size:24px;margin:22px 20px 10px;line-height:1.1}
+html[data-skin="reinasofia"] .section-title{font-size:20px}
+.strip{display:flex;gap:12px;overflow-x:auto;padding:0 20px 6px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.strip::-webkit-scrollbar{display:none}
+.work-card{flex:0 0 150px;background:var(--surface);border-radius:var(--card-radius);overflow:hidden;border:1px solid var(--line);scroll-snap-align:start;text-align:left}
+.work-card .img{height:120px;background:var(--hero-bg,var(--line));object-fit:cover;width:100%}
+.work-card .t{padding:10px 12px 12px}
+.work-card .t b{display:block;font-family:var(--display);font-style:var(--display-style);font-weight:var(--display-weight);text-transform:var(--display-tt);letter-spacing:var(--display-ls);font-stretch:var(--display-stretch);font-size:17px;line-height:1.15}
+html[data-skin="reinasofia"] .work-card .t b{font-size:15px}
+.work-card .t span{display:block;font-size:12px;color:var(--ink2);margin-top:3px}
+.work-card .t small{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--accent);text-transform:uppercase;white-space:normal;line-height:1.3}
+.nowrap{white-space:nowrap}
+html[data-skin="uffizi"] .work-card .t b,html[data-skin="uffizi"] .row .t b{font-size:14px;letter-spacing:.02em}
+.list{margin:0 20px;border-top:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:14px;min-height:56px;border-bottom:1px solid var(--line);width:100%;text-align:left;padding:8px 0}
+.row .ico{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex:0 0 auto}
+html[data-skin="reinasofia"] .row .ico{border-radius:0}
+.row .txt{flex:1;min-width:0}
+.row .txt b{display:block;font-weight:600;font-size:15px}
+.row .txt span{display:block;font-size:12.5px;color:var(--ink2)}
+.row .chev{color:var(--ink2)}
+.row .th{width:48px;height:40px;border-radius:6px;background:var(--line);object-fit:cover;flex:0 0 auto}
+.row .sala{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;max-width:38%;text-align:right;line-height:1.25}
+.row .t b{font-family:var(--display);font-style:var(--display-style);font-weight:var(--display-weight);text-transform:var(--display-tt);letter-spacing:var(--display-ls);font-stretch:var(--display-stretch);font-size:17px;line-height:1.15;display:block}
+html[data-skin="reinasofia"] .row .t b{font-size:15px}
+.row .t span{display:block;font-size:12.5px;color:var(--ink2)}
+.count{margin:14px 20px 0;font-size:13px;color:var(--ink2)}
+.empty{margin:30px 20px;color:var(--ink2);text-align:center}
+.pad-b{padding-bottom:calc(var(--safe-bottom) + 24px)}
+
+/* ---- descarga ---- */
+.pack{margin:16px 20px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.pack .l{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px}
+.pack .btn{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:0 16px;min-height:44px;font-weight:600;font-size:14px}
+html[data-skin="reinasofia"] .pack .btn{border-radius:0}
+.pack .bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.pack .bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}
+.pack small{font-size:12px;color:var(--ink2)}
+
+/* ---- ficha de obra ---- */
+.hero{position:relative;background:var(--hero-bg,var(--line))}
+.hero img{width:100%;height:auto;max-height:clamp(240px,55vh,420px);object-fit:contain;margin:0 auto}
+.hero .bar{position:absolute;top:0;left:0;right:0;height:calc(var(--safe-top) + 54px);display:flex;align-items:flex-end;justify-content:space-between;padding:0 12px 8px}
+.hero .btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(20,16,16,.4);color:#fff;backdrop-filter:blur(8px)}
+.hero .btn.on{color:#FFD86B}
+.body{padding:18px 20px calc(var(--safe-bottom) + 28px);max-width:640px}
+.cartela{display:flex;flex-direction:column;gap:6px}
+.cartela .title{font-size:40px}
+html[data-skin="reinasofia"] .cartela .title{font-size:44px}
+html[data-skin="uffizi"] .cartela .title{font-size:28px;line-height:1.15}
+html[data-skin="accademia"] .cartela .title{font-size:48px}
+.cartela .orig{font-size:14px;color:var(--ink2);font-style:italic;margin-top:-2px}
+.cartela .author{font-family:var(--author-font);font-style:var(--author-style);font-size:16px;color:var(--accent);font-weight:500}
+html[data-skin="uffizi"] .cartela .author,html[data-skin="accademia"] .cartela .author{font-size:20px}
+.cartela .tech{font-size:13px;color:var(--ink2);line-height:1.5;font-variant-numeric:tabular-nums}
+.cartela .tech b{font-weight:600}
+.level{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:12px;line-height:1.3;margin-top:10px;background:var(--level-bg);color:var(--level-ink);align-self:flex-start}
+html[data-skin="reinasofia"] .level{border-radius:0}
+.level .d{width:6px;height:6px;border-radius:50%;background:currentColor}
+.level{align-items:flex-start}.level .d{margin-top:5px}
+.body h4{margin:18px 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.body p{font-size:var(--fs);line-height:1.6;max-width:62ch}
+.body p + p{margin-top:8px}
+.fun{margin-top:16px;padding:14px 16px;border-radius:var(--radius);background:var(--fun-bg);color:var(--fun-ink)}
+html[data-skin="uffizi"] .fun{border:1px solid var(--line)}
+html[data-skin="reinasofia"] .fun{border-left:6px solid var(--accent)}
+.fun h4{margin:0 0 6px;color:var(--fun-label)}
+.artist-card{margin-top:16px;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--radius);min-height:56px;background:var(--surface);border:1px solid var(--line);width:100%;text-align:left}
+.artist-card .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);font-family:var(--display);font-weight:600;font-size:18px;font-stretch:var(--display-stretch)}
+html[data-skin="reinasofia"] .artist-card .av{border-radius:0}
+.artist-card .txt{flex:1;line-height:1.25;min-width:0}
+.artist-card .txt b{display:block;font-size:15px}
+.artist-card .txt span{font-size:12.5px;color:var(--ink2)}
+.sources{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;line-height:1.7;color:var(--ink2)}
+.sources a{text-decoration:underline;text-underline-offset:2px;display:inline-block;padding:8px 0;margin:-8px 0}
+
+/* ---- toast ---- */
+.toast{position:fixed;left:50%;bottom:calc(var(--safe-bottom) + 20px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:10}

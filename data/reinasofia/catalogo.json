@@ -1,0 +1,51 @@
+{
+ "museo": {
+  "id": "reinasofia",
+  "nombre": "Museo Reina Sofía",
+  "ciudad": "Madrid",
+  "web": "https://www.museoreinasofia.es"
+ },
+ "obras": [
+  {
+   "id": "DE00050",
+   "titulo": "Guernica",
+   "titulo_original": null,
+   "autor": "Pablo Picasso",
+   "autor_id": "picasso",
+   "fecha": "1937",
+   "fecha_orden": "1937",
+   "tecnica": "Óleo sobre lienzo",
+   "dimensiones": "349.3 × 776.6 cm",
+   "sala": "205.10",
+   "num_catalogo": "DE00050",
+   "tipo": "pintura",
+   "imagen": "img/DE00050.jpg",
+   "imperdible": true,
+   "nivel": "completa",
+   "fuente_principal": "Museo Reina Sofía",
+   "que_ves": "Un mural de casi ocho metros pintado en París entre el 1 de mayo y el 4 de junio de 1937, por encargo del Gobierno de la República para el Pabellón Español de la Exposición Internacional. Responde al bombardeo de la villa vasca de Guernica (Gernika), el 26 de abril de ese año.",
+   "historia": "Picasso pidió que el cuadro no volviera a España hasta que se restablecieran las libertades. Estuvo depositado en el MoMA de Nueva York y llegó a Madrid en septiembre de 1981. Se expuso en el Casón del Buen Retiro y pasó al Reina Sofía en 1992.",
+   "fun_fact": "No hay ni un solo color. Todo el mural está pintado en blancos, negros y grises.",
+   "fuentes": [
+    "https://www.museoreinasofia.es/coleccion/obra/guernica"
+   ]
+  }
+ ],
+ "artistas": [
+  {
+   "id": "picasso",
+   "nombre": "Pablo Picasso",
+   "nombre_completo": "Pablo Ruiz Picasso",
+   "nacimiento": {
+    "lugar": "Málaga",
+    "anio": 1881
+   },
+   "muerte": {
+    "lugar": "Mougins",
+    "anio": 1973
+   },
+   "bio": null,
+   "obras_clave_otros": []
+  }
+ ]
+}
