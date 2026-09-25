@@ -20,7 +20,7 @@ const state = { q: '' };
 
 /* ---------- utilidades ---------- */
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const norm = s => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const norm = s => String(s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const plural = (n, uno, varios) => `${n} ${n === 1 ? uno : varios}`;
 // "012" → "Sala 012"; "10–14" → "Salas 10–14"; "Tribuna del David" → tal cual
 const salaLabel = s => { s = String(s ?? ''); if (!/^\d/.test(s)) return s; return (/[–-]/.test(s) ? 'Salas ' : 'Sala ') + s; };
